@@ -17,8 +17,8 @@ export default class NoteItem extends React.Component {
       <li className="note">
         <input type="checkbox" />
         <button onClick={this.destroy}>delete</button>
-        <div className="title">{this.props.note.title}</div>
-        <div className="content">{this.props.note.content}</div>
+        <div id="title" className="title"><h2>{this.props.note.title}</h2></div>
+        <div id="content" className="content"> <p>{this.props.note.content}</p></div>
 
       </li>
     )

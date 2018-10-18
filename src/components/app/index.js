@@ -1,10 +1,12 @@
 'use strict';
 
-import './styles/main.scss';
+import '../../styles/main.scss';
+
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Dashboard from './pages/Dashboard';
-import Landing from './pages/Landing';
+
+import Dashboard from '../dashboard/index';
+import Landing from '../landing/index';
 
 import {
   BrowserRouter as Router,
