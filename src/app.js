@@ -3,12 +3,15 @@
 import './styles/main.scss';
 import React from 'react';
 import ReactDOM from 'react-dom';
+import Dashboard from './pages/Dashboard';
+import Landing from './pages/Landing';
 
 import {
   BrowserRouter as Router,
   Route,
   Link
 } from 'react-router-dom';
+
 
 class App extends React.Component {
 
@@ -24,6 +27,13 @@ class App extends React.Component {
 
             </ul>
           </nav>
+          <div id="main-content">
+            {/* Landing Page Here  */}
+            <Route exact path="/" component={Landing} />
+
+            <Route path="/dashboard" component={Dashboard} />
+
+          </div>
         </div>
       </Router>
     );
