@@ -1,8 +1,8 @@
 'use strict';
 
 import React from 'react';
-import NoteForm from '../components/NoteForm';
-import NoteList from '../components/NoteList';
+import NoteForm from '../note-create-form/index.js';
+import NoteList from '../note-list/index.js';
 
 
 export default class Dashboard extends React.Component {
