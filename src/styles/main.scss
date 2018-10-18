@@ -7,34 +7,35 @@ nav {
   background-color: rgb(113, 192, 144);
   padding: 20px 1em 0px 1em;
   color: white;
+  
+  h1 {
+    padding-left: 10px;
+  }
+  
+  a  {
+    color: white;
+    text-decoration: none;
+  }
+  
+  ul {
+    margin: 0;
+    padding: 0;
+
+    li {
+      display: inline-block;
+      padding: 10px;
+    }
+    
+    li:hover {
+      background-color: white;
+      
+      a {
+       color: black;
+     }
+    }
+  }
 }
 
-nav h1 {
-  padding-left: 10px;
-}
-
-nav a {
-  color: white;
-  text-decoration: none;
-}
-
-nav ul {
-  margin: 0;
-  padding: 0;
-}
-
-nav ul li {
-  display: inline-block;
-  padding: 10px;
-}
-
-nav ul li:hover {
-  background-color: white;
-}
-
-nav ul li:hover a {
-  color: black;
-}
 
 #main-content {
   padding: 1em;
@@ -43,19 +44,20 @@ nav ul li:hover a {
 
 .note-list ul {
   padding-left: 0;
+  
+  li {
+    list-style-position:inside
 }
 
-.note-list ul li {
-  list-style-position:inside
 }
 
 #create-note-form input {
   margin-left: 1em;
-}
 
-#create-note-form label {
-  display: block;
-  padding-bottom: 5px;
+  label {
+    display: block;
+    padding-bottom: 5px;
+  }
 }
 
 .note .title, .note .content {
