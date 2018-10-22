@@ -4,7 +4,7 @@ body {
 }
 
 nav {
-  background-color: rgb(113, 192, 144);
+  background-color: rgb(177, 21, 10);
   padding: 20px 1em 0px 1em;
   color: white;
   
@@ -46,7 +46,8 @@ nav {
   padding-left: 0;
   
   li {
-    list-style-position:inside
+    list-style-position:inside;
+    list-style: none;
 }
 
 }

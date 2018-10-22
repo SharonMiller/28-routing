@@ -6,11 +6,13 @@ import Note from '../../models/note';
 export default class NoteForm extends React.Component {
   constructor(props) {
     super(props);
+    //need to add uuid in here
 
     this.state = {
       title: '',
       content: ''
     };
+    //need to add UUID INFO
 
     this.handleChange = this.handleChange.bind(this);
     this.onComplete = this.onComplete.bind(this);
@@ -25,9 +27,7 @@ export default class NoteForm extends React.Component {
   onComplete(e) {
     e.preventDefault();
 
-    //create a note
     let note = new Note(this.state.title, this.state.content);
-    //use dashboard to add note
     this.props.addNote(note);
 
     this.setState({ title: '', content: '' });

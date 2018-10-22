@@ -3,6 +3,7 @@
 import React from 'react';
 import NoteForm from '../note-create-form/index.js';
 import NoteList from '../note-list/index.js';
+import NoteUpdateForm from '../note-update/index.js';
 
 
 export default class Dashboard extends React.Component {
@@ -32,14 +33,37 @@ export default class Dashboard extends React.Component {
     this.setState({ notes });
   }
 
+  updateNote(note, title, content) {
+    let notes = this.state.notes;
+    let noteIndex = notes.indexOf(note);
+
+    notes[noteIndex].title = title;
+    notes[noteIndex].content = content;
+
+    this.setState({ notes });
+    //get an id from a uuid from a note and update i
+
+  }
+
+  getDashboard() {
+    return {
+      state: this.state,
+      setState: this.setState.bind(this)
+    }
+  }
+
   render() {
     return (<div className="dashboard">
       <h1> Dashboard </h1>
+      <h2>Add A Note</h2>
       <NoteForm addNote={this.addNote} />
-      <NoteList notes={this.state.notes} destroyNote={this.removeNote} />
+      <h2>My Notes:</h2>
+      <NoteList notes={this.state.notes} destroyNote={this.removeNote}
+        updateNote={this.updateNote} getDashboard={this.getDashboard()} />
 
 
       {/* Delete all button goes here */}
+      {/* fix update app on this page */}
 
     </div>
     );
