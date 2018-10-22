@@ -25,9 +25,7 @@ export default class NoteForm extends React.Component {
   onComplete(e) {
     e.preventDefault();
 
-    //create a note
     let note = new Note(this.state.title, this.state.content);
-    //use dashboard to add note
     this.props.addNote(note);
 
     this.setState({ title: '', content: '' });
