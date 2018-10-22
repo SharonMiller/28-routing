@@ -45,6 +45,13 @@ export default class Dashboard extends React.Component {
 
   }
 
+  getDashboard() {
+    return {
+      state: this.state,
+      setState: this.setState.bind(this)
+    }
+  }
+
   render() {
     return (<div className="dashboard">
       <h1> Dashboard </h1>
@@ -52,10 +59,11 @@ export default class Dashboard extends React.Component {
       <NoteForm addNote={this.addNote} />
       <h2>My Notes:</h2>
       <NoteList notes={this.state.notes} destroyNote={this.removeNote}
-        updateNote={this.updateNote} />
+        updateNote={this.updateNote} getDashboard={this.getDashboard()} />
 
 
       {/* Delete all button goes here */}
+      {/* fix update app on this page */}
 
     </div>
     );

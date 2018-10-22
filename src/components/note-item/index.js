@@ -6,7 +6,7 @@ export default class NoteItem extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      editing: false,
+      isEditing: false,
     }
 
     this.destroy = this.destroy.bind(this);
@@ -15,7 +15,7 @@ export default class NoteItem extends React.Component {
   }
 
   handleEdit() {
-    this.setState({ editing: !this.state.isEditing });
+    this.setState({ isEditing: !this.state.isEditing });
   }
 
 
@@ -25,27 +25,27 @@ export default class NoteItem extends React.Component {
 
   render() {
     return (
-      <li className="note" onDoubleClick={this.handleEdit}>
-        {this.state.editing === false ?
-          <section>
-            <p> Content: {this.props.note.content}</p>
-            <label>Editing:
+      <li className="noteItem" onDoubleClick={this.handleEdit}>
+        <section>
+          <label>Editing:
           <input
-                disabled
-                type="checkbox"
-                value={this.props.note.completed} />
-            </label>
-            <label> Completed:
+              disabled
+              type="checkbox"
+              checked={this.props.note.isEditing} />
+          </label>
+          <label> Completed:
               <input
-                disabled
-                type="checkbox"
-                value={this.props.note.completed} />
-            </label>
-            <div id="title" className="title"><h2>{this.props.note.title}</h2></div>
-            <div id="content" className="content"> <p>{this.props.note.content}</p></div>
-            <button onClick={this.destroy}>delete</button>
-          </section> :
-          <NoteUpdateForm note={this.props.note} app={this.props.app} />
+              disabled
+              type="checkbox"
+              checked={this.props.note.isCompleted} />
+          </label>
+        </section>
+        {(this.state.isEditing === false) ? <section>
+          <div id="title" className="title"><h2>{this.props.note.title}</h2></div>
+          <div id="content" className="content"> <p>{this.props.note.content}</p></div>
+          <button onClick={this.destroy}>delete</button>
+        </section> :
+          <NoteUpdateForm note={this.props.note} getDashboard={this.props.getDashboard} handleEdit={this.handleEdit} />
         }
       </li>
 

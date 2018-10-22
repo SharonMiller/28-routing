@@ -6,8 +6,7 @@ export default class NoteUpdateForm extends React.Component {
     super(props)
 
     this.state = {
-      title: this.props.title || '',
-      content: this.props.content || '',
+      content: this.props.note.content || '',
     }
 
     this.handleChange = this.handleChange.bind(this)
@@ -22,12 +21,13 @@ export default class NoteUpdateForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault()
-    this.props.app.setState(prevState => ({
+    this.props.handleEdit();
+    this.props.getDashboard.setState(prevState => ({
       notes: prevState.notes.map(note => {
         if (note.id === this.props.note.id) {
           note.content = this.state.content
         }
-        return note
+        return note //this returns a note array with one of the updated
       })
     }))
   }
@@ -40,7 +40,7 @@ export default class NoteUpdateForm extends React.Component {
           name="content"
           value={this.state.content}
           onChange={this.handleChange} />
-        <button type="submit">++</button>
+        <button type="submit">Submit Change</button>
       </form>
     )
   }
